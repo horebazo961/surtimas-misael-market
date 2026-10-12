@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bodega Surtimas Misael — Despensa Personalizada</title>
+<meta name="description" content="Más variedad, mejores precios, siempre para ti. Arma tu despensa y confirma por WhatsApp. Bodega Surtimas Misael.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #e30613;
+  --red-dark: #b8050f;
+  --blue: #0033a0;
+  --blue-dark: #002070;
+  --yellow: #ffcc00;
+  --white: #ffffff;
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-600: #495057;
+  --gray-800: #212529;
+  --green-wa: #25d366;
+  --radius: 16px;
+  --shadow: 0 8px 30px rgba(0,0,0,.12);
+  --max: 1100px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--gray-50);
+  color:var(--gray-800);
+  line-height:1.5;
+}
+a{text-decoration:none;color:inherit}
+.container{width:min(calc(100% - 32px),var(--max));margin:0 auto}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);
+  color:white;
+  padding:14px 0;
+  position:sticky;top:0;z-index:100;
+  box-shadow:0 4px 20px rgba(227,6,19,.35);
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{
+  font-weight:900;font-size:clamp(18px,4vw,24px);
+  letter-spacing:-0.5px;display:flex;align-items:center;gap:8px;
+}
+.logo span{background:var(--blue);padding:4px 10px;border-radius:8px;font-size:0.85em}
+.tagline{font-size:12px;opacity:.9;font-weight:600;display:none}
+@media(min-width:640px){.tagline{display:block}}
+.cart-btn{
+  background:white;color:var(--red);border:none;
+  padding:10px 16px;border-radius:999px;font-weight:800;font-size:14px;
+  display:flex;align-items:center;gap:8px;cursor:pointer;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);transition:.2s;
+}
+.cart-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.cart-count{
+  background:var(--blue);color:white;width:22px;height:22px;
+  border-radius:50%;display:grid;place-items:center;font-size:12px;font-weight:900;
+}
+
+/* HERO */
+.hero{
+  background:linear-gradient(160deg,#fff 0%,#fff5f5 40%,#f0f4ff 100%);
+  padding:40px 0 50px;text-align:center;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 80% 20%,rgba(227,6,19,.08),transparent 40%),
+             radial-gradient(circle at 10% 80%,rgba(0,51,160,.06),transparent 35%);
+  pointer-events:none;
+}
+.hero-content{position:relative;z-index:2}
+.badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--yellow);color:var(--blue-dark);
+  font-weight:800;font-size:12px;padding:6px 14px;border-radius:999px;
+  margin-bottom:16px;letter-spacing:.3px;
+}
+h1{
+  font-size:clamp(32px,7vw,52px);font-weight:900;line-height:1.05;
+  letter-spacing:-1.5px;color:var(--blue);margin-bottom:8px;
+}
+h1 .red{color:var(--red)}
+.hero-sub{
+  font-size:clamp(15px,2.5vw,18px);color:var(--gray-600);
+  max-width:520px;margin:0 auto 24px;font-weight:500;
+}
+.values{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-top:8px;
+}
+.value-pill{
+  background:white;border:1.5px solid var(--gray-200);
+  padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700;
+  display:flex;align-items:center;gap:6px;box-shadow:0 2px 8px rgba(0,0,0,.04);
+}
+.value-pill span{font-size:16px}
+
+/* PRODUCTS */
+.section{padding:48px 0 80px}
+.section-title{
+  font-size:clamp(22px,4vw,28px);font-weight:900;color:var(--blue);
+  margin-bottom:8px;display:flex;align-items:center;gap:10px;
+}
+.section-sub{color:var(--gray-600);font-size:14px;margin-bottom:28px}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:20px;
+}
+.card{
+  background:white;border-radius:var(--radius);
+  border:1.5px solid var(--gray-200);
+  overflow:hidden;transition:.25s;display:flex;flex-direction:column;
+  box-shadow:0 4px 16px rgba(0,0,0,.05);
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:#ffb3b8}
+.card-img{
+  height:160px;background:linear-gradient(145deg,#f8f9fa,#e9ecef);
+  display:grid;place-items:center;font-size:48px;position:relative;
+}
+.card-badge{
+  position:absolute;top:10px;left:10px;
+  background:var(--red);color:white;font-size:11px;font-weight:800;
+  padding:4px 10px;border-radius:6px;
+}
+.card-body{padding:18px;flex:1;display:flex;flex-direction:column}
+.card-cat{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+.card h3{font-size:16px;font-weight:800;margin-bottom:6px;line-height:1.25}
+.card-desc{font-size:13px;color:var(--gray-600);margin-bottom:12px;flex:1}
+.price-row{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
+.price{
+  font-size:22px;font-weight:900;color:var(--red);
+}
+.price-note{font-size:12px;color:var(--gray-600);font-weight:600}
+.price-consult{
+  background:#fff3cd;color:#856404;font-size:12px;font-weight:700;
+  padding:6px 10px;border-radius:8px;
+}
+.qty-row{display:flex;align-items:center;gap:10px}
+.qty-btn{
+  width:36px;height:36px;border-radius:10px;border:1.5px solid var(--gray-200);
+  background:white;font-size:18px;font-weight:700;cursor:pointer;
+  display:grid;place-items:center;transition:.15s;
+}
+.qty-btn:hover{background:var(--gray-100);border-color:var(--red)}
+.qty-val{
+  min-width:32px;text-align:center;font-weight:800;font-size:16px;
+}
+.add-btn{
+  flex:1;background:var(--blue);color:white;border:none;
+  padding:11px 14px;border-radius:12px;font-weight:800;font-size:14px;
+  cursor:pointer;transition:.2s;display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.add-btn:hover{background:var(--blue-dark)}
+.add-btn.added{background:var(--green-wa)}
+
+/* CART DRAWER */
+.overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;
+  opacity:0;visibility:hidden;transition:.3s;
+}
+.overlay.open{opacity:1;visibility:visible}
+.drawer{
+  position:fixed;top:0;right:0;width:min(100%,400px);height:100%;
+  background:white;z-index:210;transform:translateX(100%);
+  transition:.35s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;box-shadow:-8px 0 40px rgba(0,0,0,.15);
+}
+.drawer.open{transform:translateX(0)}
+.drawer-header{
+  padding:18px 20px;background:var(--blue);color:white;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.drawer-header h2{font-size:18px;font-weight:800}
+.close-btn{
+  background:rgba(255,255,255,.2);border:none;color:white;
+  width:36px;height:36px;border-radius:50%;font-size:20px;cursor:pointer;
+}
+.drawer-body{flex:1;overflow-y:auto;padding:16px 20px}
+.cart-empty{text-align:center;padding:40px 20px;color:var(--gray-600)}
+.cart-item{
+  display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--gray-200);
+}
+.cart-item-info{flex:1}
+.cart-item-name{font-weight:700;font-size:14px;margin-bottom:2px}
+.cart-item-meta{font-size:12px;color:var(--gray-600)}
+.cart-item-price{font-weight:800;color:var(--red);font-size:15px}
+.remove-btn{
+  background:none;border:none;color:#dc3545;font-size:18px;cursor:pointer;padding:4px;
+}
+.drawer-footer{
+  padding:16px 20px 24px;border-top:1px solid var(--gray-200);
+  background:var(--gray-50);
+}
+.total-row{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:12px;font-size:18px;font-weight:800;
+}
+.total-row span:last-child{color:var(--red);font-size:24px}
+.note-total{font-size:12px;color:var(--gray-600);margin-bottom:14px}
+.option-group{margin-bottom:14px}
+.option-group label{
+  display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;
+  padding:10px 12px;border:1.5px solid var(--gray-200);border-radius:10px;
+  cursor:pointer;margin-bottom:8px;transition:.15s;
+}
+.option-group label:has(input:checked){border-color:var(--blue);background:#f0f4ff}
+.option-group input{accent-color:var(--blue)}
+.wa-btn{
+  width:100%;background:var(--green-wa);color:white;border:none;
+  padding:16px;border-radius:14px;font-weight:900;font-size:16px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;
+  box-shadow:0 6px 20px rgba(37,211,102,.35);transition:.2s;
+}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,211,102,.45)}
+.wa-btn:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* FOOTER */
+footer{
+  background:var(--blue);color:white;padding:28px 0;text-align:center;
+}
+.footer-brand{font-weight:900;font-size:18px;margin-bottom:6px}
+.footer-text{font-size:13px;opacity:.85}
+
+/* FLOAT WA */
+.float-wa{
+  position:fixed;right:18px;bottom:18px;z-index:90;
+  width:58px;height:58px;border-radius:50%;background:var(--green-wa);
+  display:grid;place-items:center;font-size:28px;
+  box-shadow:0 8px 28px rgba(37,211,102,.45);
+  transition:.2s;
+}
+.float-wa:hover{transform:scale(1.08)}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .card-img{height:140px;font-size:40px}
+  .add-btn{padding:10px;font-size:13px}
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">
+      🛒 BODEGA <span>SURTIMAS MISAEL</span>
+    </div>
+    <div class="tagline">Más variedad, mejores precios, siempre para ti</div>
+    <button class="cart-btn" id="openCart" aria-label="Abrir despensa">
+      🧺 Despensa <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-content">
+    <div class="badge">¡TODO LO QUE NECESITAS, CERCA DE TI!</div>
+    <h1>Arma tu <span class="red">Despensa</span><br>Personalizada</h1>
+    <p class="hero-sub">Elige productos, calcula tu total y confirma el pedido directo por WhatsApp. Tu bodega de confianza.</p>
+    <div class="values">
+      <div class="value-pill"><span>🛒</span> Gran variedad</div>
+      <div class="value-pill"><span>💲</span> Precios bajos</div>
+      <div class="value-pill"><span>✅</span> Calidad garantizada</div>
+      <div class="value-pill"><span>🤝</span> Atención de confianza</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">📦 Productos en stock verificado</h2>
+    <p class="section-sub">Solo productos confirmados. Los precios no listados se consultan al confirmar por WhatsApp.</p>
+
+    <div class="grid" id="productGrid">
+      <!-- Products injected by JS -->
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-brand">TU BODEGA DE CONFIANZA</div>
+    <div class="footer-text">Bodega Surtimas Misael · surtimas-misael.com</div>
+    <div class="footer-text" style="margin-top:6px">WhatsApp: +593 99 303 9104</div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/593993039104?text=Hola%20Bodega%20Surtimas%20Misael%2C%20quiero%20consultar%20productos" target="_blank" rel="noopener" aria-label="WhatsApp">💬</a>
+
+<!-- CART DRAWER -->
+<div class="overlay" id="overlay"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-header">
+    <h2>🧺 Tu Despensa</h2>
+    <button class="close-btn" id="closeCart" aria-label="Cerrar">×</button>
+  </div>
+  <div class="drawer-body" id="cartBody">
+    <div class="cart-empty">Tu despensa está vacía.<br>Agrega productos para empezar.</div>
+  </div>
+  <div class="drawer-footer">
+    <div class="total-row">
+      <span>Total estimado</span>
+      <span id="cartTotal">$0.00</span>
+    </div>
+    <p class="note-total" id="totalNote">* Solo productos con precio fijo. Los demás se confirman por WhatsApp.</p>
+
+    <div class="option-group">
+      <label><input type="radio" name="entrega" value="retiro" checked> 🏪 Retiro en bodega</label>
+      <label><input type="radio" name="entrega" value="courier"> 🛵 Envío por courier (próximamente – Fase 2)</label>
+    </div>
+
+    <button class="wa-btn" id="waBtn" disabled>
+      💬 Confirmar pedido por WhatsApp
+    </button>
+  </div>
+</aside>
+
+<script>
+const PRODUCTS = [
+  {
+    id: 'colgate-triple',
+    name: 'Colgate Triple Acción Xtra Blancura',
+    cat: 'Cuidado personal',
+    desc: 'Econo Pack 3 cremas · Triple acción: protección, xtra blancura y frescura',
+    price: 9.50,
+    unit: 'la docena',
+    emoji: '🦷',
+    badge: 'PRECIO FIJO'
+  },
+  {
+    id: 'lonchys',
+    name: 'Lonchys Fideos Instantáneos',
+    cat: 'Fideos / Instantáneos',
+    desc: 'Vaso listo en 3 min · Sabores: Pollo, Camarón, Carne',
+    price: null,
+    unit: 'consultar',
+    emoji: '🍜',
+    badge: null
+  },
+  {
+    id: 'ranchero',
+    name: 'Ranchero Cubos de Pollo',
+    cat: 'Condimentos',
+    desc: 'Caja x 48 unidades · Rinde 2 cubos · No contiene grasa · Precio especial',
+    price: null,
+    unit: 'consultar',
+    emoji: '🐔',
+    badge: 'PRECIO ESPECIAL'
+  },
+  {
+    id: 'estaciones',
+    name: 'Papel Higiénico Estaciones',
+    cat: 'Hogar',
+    desc: '1 rollo x 200 metros · Rinde hasta 3.7 veces más',
+    price: null,
+    unit: 'consultar',
+    emoji: '🧻',
+    badge: null
+  },
+  {
+    id: 'oriental',
+    name: 'Fideo Chino Oriental Gallarín Grueso',
+    cat: 'Fideos',
+    desc: 'Presentación 400 g · Gallarín grueso · Más cuerpo, más sabor',
+    price: null,
+    unit: 'consultar',
+    emoji: '🍝',
+    badge: null
+  }
+];
+
+let cart = JSON.parse(localStorage.getItem('surtimas_cart') || '{}');
+
+function saveCart() {
+  localStorage.setItem('surtimas_cart', JSON.stringify(cart));
+  renderCart();
+  updateCount();
+}
+
+function updateCount() {
+  const total = Object.values(cart).reduce((s, q) => s + q, 0);
+  document.getElementById('cartCount').textContent = total;
+}
+
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = PRODUCTS.map(p => {
+    const qty = cart[p.id] || 0;
+    return `
+    <article class="card" data-id="${p.id}">
+      <div class="card-img">
+        ${p.emoji}
+        ${p.badge ? `<span class="card-badge">${p.badge}</span>` : ''}
+      </div>
+      <div class="card-body">
+        <div class="card-cat">${p.cat}</div>
+        <h3>${p.name}</h3>
+        <p class="card-desc">${p.desc}</p>
+        <div class="price-row">
+          ${p.price !== null
+            ? `<div class="price">$${p.price.toFixed(2)} <span class="price-note">${p.unit}</span></div>`
+            : `<div class="price-consult">💬 Consultar precio por WhatsApp</div>`
+          }
+        </div>
+        <div class="qty-row">
+          <button class="qty-btn" onclick="changeQty('${p.id}', -1)">−</button>
+          <span class="qty-val" id="qty-${p.id}">${qty}</span>
+          <button class="qty-btn" onclick="changeQty('${p.id}', 1)">+</button>
+          <button class="add-btn ${qty > 0 ? 'added' : ''}" onclick="addOne('${p.id}')">
+            ${qty > 0 ? '✓ En despensa' : '+ Agregar'}
+          </button>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+}
+
+function changeQty(id, delta) {
+  const current = cart[id] || 0;
+  const next = Math.max(0, current + delta);
+  if (next === 0) delete cart[id];
+  else cart[id] = next;
+  saveCart();
+  document.getElementById(`qty-${id}`).textContent = next;
+  const btn = document.querySelector(`[data-id="${id}"] .add-btn`);
+  if (btn) {
+    btn.classList.toggle('added', next > 0);
+    btn.innerHTML = next > 0 ? '✓ En despensa' : '+ Agregar';
+  }
+}
+
+function addOne(id) {
+  cart[id] = (cart[id] || 0) + 1;
+  saveCart();
+  document.getElementById(`qty-${id}`).textContent = cart[id];
+  const btn = document.querySelector(`[data-id="${id}"] .add-btn`);
+  if (btn) {
+    btn.classList.add('added');
+    btn.innerHTML = '✓ En despensa';
+  }
+}
+
+function renderCart() {
+  const body = document.getElementById('cartBody');
+  const ids = Object.keys(cart);
+  if (ids.length === 0) {
+    body.innerHTML = '<div class="cart-empty">Tu despensa está vacía.<br>Agrega productos para empezar.</div>';
+    document.getElementById('waBtn').disabled = true;
+    document.getElementById('cartTotal').textContent = '$0.00';
+    return;
+  }
+
+  let total = 0;
+  let hasConsult = false;
+
+  body.innerHTML = ids.map(id => {
+    const p = PRODUCTS.find(x => x.id === id);
+    const q = cart[id];
+    if (p.price !== null) total += p.price * q;
+    else hasConsult = true;
+    return `
+    <div class="cart-item">
+      <div style="font-size:28px">${p.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${p.name}</div>
+        <div class="cart-item-meta">Cantidad: ${q} ${p.price !== null ? '· $' + (p.price * q).toFixed(2) : '· Consultar precio'}</div>
+      </div>
+      <div class="cart-item-price">${p.price !== null ? '$' + (p.price * q).toFixed(2) : '💬'}</div>
+      <button class="remove-btn" onclick="changeQty('${id}', -${q})" aria-label="Quitar">×</button>
+    </div>`;
+  }).join('');
+
+  document.getElementById('cartTotal').textContent = '$' + total.toFixed(2);
+  document.getElementById('totalNote').textContent = hasConsult
+    ? '* Incluye productos sin precio fijo. Se confirman al enviar el mensaje por WhatsApp.'
+    : '* Total con precios fijos verificados.';
+  document.getElementById('waBtn').disabled = false;
+}
+
+function buildWhatsAppMessage() {
+  const ids = Object.keys(cart);
+  if (ids.length === 0) return '';
+
+  let lines = ['🛒 *PEDIDO — Bodega Surtimas Misael*', ''];
+  let total = 0;
+  let hasConsult = false;
+
+  ids.forEach(id => {
+    const p = PRODUCTS.find(x => x.id === id);
+    const q = cart[id];
+    if (p.price !== null) {
+      const sub = p.price * q;
+      total += sub;
+      lines.push(`• ${p.name} x${q} → $${sub.toFixed(2)}`);
+    } else {
+      hasConsult = true;
+      lines.push(`• ${p.name} x${q} → *Consultar precio*`);
+    }
+  });
+
+  lines.push('');
+  lines.push(`*Total estimado (precios fijos): $${total.toFixed(2)}*`);
+  if (hasConsult) lines.push('_Hay productos sin precio fijo — por favor confirmar valor._');
+
+  const entrega = document.querySelector('input[name="entrega"]:checked')?.value || 'retiro';
+  lines.push('');
+  lines.push(entrega === 'retiro'
+    ? '📍 Modalidad: *Retiro en bodega*'
+    : '🛵 Modalidad: *Envío por courier (Fase 2 — por confirmar)*');
+
+  lines.push('');
+  lines.push('¿Me confirman disponibilidad y total final? Gracias.');
+
+  return encodeURIComponent(lines.join('\n'));
+}
+
+document.getElementById('waBtn').addEventListener('click', () => {
+  const msg = buildWhatsAppMessage();
+  if (!msg) return;
+  window.open(`https://wa.me/593993039104?text=${msg}`, '_blank');
+});
+
+document.getElementById('openCart').addEventListener('click', () => {
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('drawer').classList.add('open');
+});
+document.getElementById('closeCart').addEventListener('click', closeDrawer);
+document.getElementById('overlay').addEventListener('click', closeDrawer);
+function closeDrawer() {
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('drawer').classList.remove('open');
+}
+
+// Init
+renderProducts();
+renderCart();
+updateCount();
+</script>
+</body>
+</html>
